@@ -80,5 +80,20 @@ int edit_quote(struct Quote quotes[], int numOfQuotes) {
     }
 
     printf("Quote at index %d has been updated.\n", index);
+    
+    FILE *fp = fopen("D:/Semester_1_Projekte/Software/Project_Chicago/quotes.txt", "w");
+    if (fp == NULL) {
+        perror("Error opening file for writing!\n");
+        return numOfQuotes;
+    }
+
+    for (int i = 0; i < numOfQuotes; i++) {
+        fprintf(fp, "\"%s\" (%s, %d) Source: %s | Page: %d\n",
+                quotes[i].quote, quotes[i].author, quotes[i].date,
+                quotes[i].source, quotes[i].page);
+    }
+
+    fclose(fp);
+    
     return numOfQuotes;
 }
