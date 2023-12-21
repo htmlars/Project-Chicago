@@ -6,8 +6,9 @@
 #include "delete_quote.h"
 #include "read_quotes.h"
 
+#define MAX_QUOTES 100
+
 int main() {
-    const int MAX_QUOTES = 100;
     struct Quote quotes[MAX_QUOTES];
     int numOfQuotes = read_quotes(quotes, MAX_QUOTES);
     int option;
